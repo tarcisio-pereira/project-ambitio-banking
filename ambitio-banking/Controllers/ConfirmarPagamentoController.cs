@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ambitio_banking.Controllers
 {
-    public class ConfirmarPagemntoController : Controller
+    public class ConfirmarPagamentoController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
