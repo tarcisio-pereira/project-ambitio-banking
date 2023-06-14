@@ -14,5 +14,19 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: rgb(242, 244, 247)
+}
+
+d-flex {
+    padding: 10px;
+    border: 40px;
+    margin: 30px;
+    width: 100vh
+}
+
+InputValue {
+    border: 40px;
+    margin: 30px;
+    width: 100vh
 }
