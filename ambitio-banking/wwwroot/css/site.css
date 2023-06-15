@@ -8,25 +8,96 @@
   }
 }
 
+.main {
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.sidebar {
+    width: 225px;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px
+}
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-    margin-bottom: 60px;
     background-color: rgb(242, 244, 247)
 }
 
-d-flex {
-    padding: 10px;
-    border: 40px;
-    margin: 30px;
-    width: 100vh
+.div {
+    padding: 0px;
+    margin: 0px;
+    border: 0px
+}
+.fw-normal {
+    margin-top: 10px;
+    margin-block-end: 0px;
+    border: 0px;
+    color: #6E7E90;
+    font-size: 12px
 }
 
-InputValue {
-    border: 40px;
-    margin: 30px;
-    width: 100vh
+.fw-light {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    color: #6E7E90
 }
+
+.table {
+    weight: 100vh;
+}
+
+
+fw-medium {
+    padding: 0px;
+    margin: 0px;
+    border: 0px
+}
+
+[id=InputName] [id=InputValue] {
+    border: 40px;
+}
+
+/*.bg-white {
+    padding: 10px;
+    border: 40px;
+    margin: 10px;
+}
+*/
+.form-label {
+    padding-top: 6px;
+}
+
+.form-select {
+    padding-top: 6px;
+}
+
+[id=LabelImputBarCode] {
+    margin: 25px;
+}
+
+[id=FormControlTextarea] {
+    width: 600px;
+    height: 200px;
+    padding: 25px;
+}
+
+[id=ConfirmButton] {
+    margin-top: 10px;
+}
+

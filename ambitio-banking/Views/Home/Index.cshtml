@@ -1,51 +1,116 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Página inicial";
 }
-<div class="Container">
-    <div>
-
-        <div class="d-flex">
+<div class="d-flex">
+    <div class="sidebar d-flex flex-column p-3 bg-white shadow">
+            <div class="d-flex">
+                <div class="d-flex align-items-center">
+                    <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4" alt="" width="32" height="32" class="rounded-circle me-2">
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="fw-light"><strong>Tarcisio Mendes</strong>  conta:1234-5</p>
+                </div>
+            </div>
             <div>
-                <table class="table rounded shadow-sm bg-white  ">
-                    <thead>
-                        <tr>
-                            <th scope="col">Extrato</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <a class="d-flex justify-content-center">
-                                    <img src="/Users/tarcisio.pereira/my_project/ambito-banking/img/cashOut.png"
-                                         alt="Ambitio" width="10" height="10">
-                                </a>
-                            </th>
-                            <td>Antônio Brasil</td>
-                            <td>R$1000,00</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <a class="d-flex justify-content-center">
-                                    <img src="/Users/tarcisio.pereira/my_project/Ambito-banking/img/cashOut.png"
-                                         alt="Ambitio" width="10" height="10">
-                                </a>
-                            </th>
-                            <td>Antônio Brasil</td>
-                            <td>R$1000,00</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <a class="d-flex justify-content-center">
-                                    <img src="/Users/tarcisio.pereira/my_project/Ambito-banking/img/cashOut.png"
-                                         alt="Ambitio" width="10" height="10">
-                                </a>
-                            </th>
-                            <td>Antônio Brasil </td>
-                            <td>R$1000,00</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-start">
+                        <p class="fw-normal">Saldo da Conta</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <p class="fw-medium">R$&nbsp;<strong>39.980,28</strong></p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark active" asp-area="" asp-controller="Home" asp-action="Index">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#speedometer2"></use>
+                        </svg>Inicio
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Transferir" asp-action="Index">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#speedometer2"></use>
+                        </svg>
+                        Transferir
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Pagar" asp-action="Index">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#table"></use>
+                        </svg>
+                        Pagar
+                    </a>
+                </li>
+            </ul>
+            <hr>
+    </div>
+
+
+    <div class="d-flex flex-column mb-3 flex-fill">
+
+        <div class="d-flex p-2 justify-content-center">
+            <div class="name-cpf">
+                <nav class="flex-column rounded shadow-sm bg-white">
+                    <div class="nav-text">
+                        <p>Tarcisio Mendes</p>
+                    </div>
+                    <div class="nav-text">
+                        <p> 115.302.167.51</p>
+                    </div>
+                </nav>
             </div>
         </div>
+            <div class="d-flex p-2 justify-content-center">
+                <div class="d-flex p-2">
+                    <table class="table table-responsiverounded shadow-sm bg-white">
+                        <thead>
+                            <tr>
+                                <th scope="col">Extrato</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <a class="d-flex justify-content-center">
+                                        <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4"
+                                             alt="Ambitio" width="10" height="10">
+                                    </a>
+                                </th>
+                                <td>Antônio Brasil</td>
+                                <td>R$1000,00</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a class="d-flex justify-content-center">
+                                        <img src="/Imagem/cashOut.png"
+                                             alt="Ambitio" width="10" height="10">
+                                    </a>
+                                </th>
+                                <td>José Eduardo</td>
+                                <td>R$1000,00</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a class="d-flex justify-content-center">
+                                        <img src="/Imagem/cashOut.png"
+                                             alt="Ambitio" width="10" height="10">
+                                    </a>
+                                </th>
+                                <td>Maria Cabral </td>
+                                <td>R$1000,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
     </div>
 </div>

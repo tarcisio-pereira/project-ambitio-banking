@@ -15,13 +15,11 @@
   <ItemGroup>
     <None Remove="Views\Transferir\" />
     <None Remove="Views\Pagar\" />
-    <None Remove="img\" />
     <None Remove="Views\ConfirmarPagamento\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Transferir\" />
     <Folder Include="Views\Pagar\" />
-    <Folder Include="img\" />
     <Folder Include="Views\ConfirmarPagamento\" />
   </ItemGroup>
 </Project>
