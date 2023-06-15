@@ -1,115 +1,132 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Transferir";
 }
-
+@*Sidebar página*@
 <div class="d-flex">
-    <div class="d-flex">
-        <div class="sidebar d-flex flex-column p-3 bg-white shadow">
-            <div class="d-flex">
-                <div class="d-flex align-items-center">
-                    <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4" alt="" width="32" height="32" class="rounded-circle me-2">
-                </div>
-                <div class="d-flex align-items-center">
-                    <p class="fw-light"><strong>Tarcisio Mendes</strong>  conta:1234-5</p>
-                </div>
+    <div class="sidebar d-flex flex-column p-3 bg-white shadow">
+        <div class="d-flex">
+            <div class="d-flex align-items-center">
+                <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4" alt="" width="32" height="32" class="rounded-circle me-2">
             </div>
-            <div>
-                <div class="d-flex flex-column">
-                    <div class="d-flex justify-content-start">
-                        <p class="fw-normal">Saldo da Conta</p>
-                    </div>
-                    <div class="d-flex justify-content-start">
-                        <p class="fw-medium">R$&nbsp;<strong>39.980,28</strong></p>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-dark active" asp-area="" asp-controller="Home" asp-action="Index">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>Inicio
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Transferir" asp-action="Index">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>
-                        Transferir
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Pagar" asp-action="Index">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table"></use>
-                        </svg>
-                        Pagar
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-
-
-        <div class="d-flex flex-column mb-3 flex-fill">
-
-            <div class="d-flex p-2 justify-content-center">
-                <div class="text-center">
-                    <h3 class="display-4">Transferir</h3>
-                    <p>Aqui você pode transferir o seu dinheiro para contratos Ambitio</p>
-                </div>
-            </div>
-                <div class="d-flex p-2 justify-content-center">
-                    <form class="row g-3">
-                        <div class="d-flex bg-white rounded-3">
-                            <div class="col-md-4">
-                                <label for="validationServer01" class="form-label">Valor da transferência</label>
-                                <input type="text" class="form-control" id="InputValue" value="R$ 0,00">
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-column bg-white rounded-3">
-
-                            <div class="d-flex justify-content-between">
-                                <div class="col-md-4">
-                                    <label for="validationServer01" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="InputName" value="Digite o nome">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationServer01" class="form-label">CPF</label>
-                                    <input type="text" class="form-control" id="InputCpf" value="000.000.000-00">
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between">
-                                <div class="col-md-3">
-                                    <label for="validationServer04" class="form-label">Tipo de conta</label>
-                                    <select class="form-select" id="validationServer04">
-                                        <option selected disabled value="SelectTipyAccount">Selecione o tipo da conta</option>
-                                        <option>Conta Corrente</option>
-                                        <option>Conta Poupança</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationServer01" class="form-label">Agencia</label>
-                                    <input type="text" class="form-control" id="InputCpf" value="0001">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationServer01" class="form-label">Conta</label>
-                                    <input type="text" class="form-control" id="InputCpf" value="1234-5" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <button class="btn btn-primary rounded btn-lg btn-block" type="submit">Confirmar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <div class="d-flex align-items-center">
+                <p class="fw-light"><strong>Tarcisio Mendes</strong>  conta:1234-5</p>
             </div>
         </div>
+        <div>
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-start">
+                    <p class="fw-normal">Saldo da Conta</p>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <p class="fw-medium">R$&nbsp;<strong>39.980,28</strong></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link text-dark active" asp-area="" asp-controller="Home" asp-action="Index">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#speedometer2"></use>
+                    </svg>Inicio
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Transferir" asp-action="Index">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#speedometer2"></use>
+                    </svg>
+                    Transferir
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Pagar" asp-action="Index">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#table"></use>
+                    </svg>
+                    Pagar
+                </a>
+            </li>
+        </ul>
     </div>
 
+    @*Aqui começa o body da página*@
+    <div class="d-flex flex-column mb-3 flex-fill" id="ComponenteBody">
+        <div class="d-flex flex-row">
+            <div class="d-flex justify-content-start">
+                <nav class="rounded shadow-sm bg-white" id="NavDataUser">
+                    <div class="nav-text">
+                        <p class="fw-normal" id="LabelNavDataUser"><strong>Tarcisio Mendes</strong></p>
+                    </div>
+                    <div class="nav-text">
+                        <p class="fw-light" id="LabelNavDataCpf">115.302.167.51</p>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="d-flex justify-content-start">
+                <label class="fs-6" id="LabelTransfer"><strong>Transferir</strong></label>
+            </div>
+        </div>
+        <hr>
+
+        <div class="d-flex p-2 justify-content-center ">
+            <form class="row g-3">
+                <div class="d-flex bg-white rounded-3" id="ComponetTransfValue">
+                    <div class="col-md-4">
+                        <label for="validationServer01" class="form-label fw-normal">Valor da transferência</label>
+                        <input type="text" class="form-control" id="InputValue" value="R$ 0,00">
+                    </div>
+
+                </div>
+
+                <div class="d-flex">
+                    <div class="d-flex justify-content-start">
+                        <label class="fs-6" id="LabelTransfer"><strong>Dados do Cliente - Destino</strong></label>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="d-flex flex-column bg-white rounded-3">
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4">
+                            <label for="validationServer01" class="form-label fw-normal">Nome</label>
+                            <input type="text" class="form-control" id="InputName" value="Digite o nome">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationServer01" class="form-label fw-normal">CPF</label>
+                            <input type="text" class="form-control" id="InputCpf" value="000.000.000-00">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-3">
+                            <label for="validationServer04" class="form-label fw-normal">Tipo de conta</label>
+                            <select class="form-select" id="validationServer04">
+                                <option selected disabled value="SelectTipyAccount" id="InputTypeAccount">Selecione o tipo da conta</option>
+                                <option>Conta Corrente</option>
+                                <option>Conta Poupança</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationServer01" class="form-label fw-normal">Agencia</label>
+                            <input type="text" class="form-control" id="InputCpf" value="0001">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationServer01" class="form-label fw-normal">Conta</label>
+                            <input type="text" class="form-control" id="InputCpf" value="1234-5" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary rounded-3" id="ConfirmButton" type="submit">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
