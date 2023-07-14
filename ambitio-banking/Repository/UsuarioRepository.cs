@@ -16,9 +16,14 @@ namespace ambitio_banking.Repository
 
         }
 
+        public UsuarioModel ListarPorId(int id)
+        {
+            return _ambitioContext.Usuario.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<UsuarioModel> BuscarTodos()
         {
-            return _ambitioContext.ToList();
+            return _ambitioContext.Usuario.ToList();
         }
 
 
@@ -29,6 +34,22 @@ namespace ambitio_banking.Repository
             return usuario;
         }
 
+        public UsuarioModel Atualizar(UsuarioModel usuario)
+        {
+            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
+
+            if (usuarioDB == null) throw new System.Exception("Houve um erro na atualização do contato!");
+
+            usuarioDB.Nome = usuario.Nome;
+            usuarioDB.Cpf = usuario.Cpf;
+            usuarioDB.Email = usuario.Email;
+            usuarioDB.Senha = usuario.Senha;
+
+            _ambitioContext.Usuario.Update(usuarioDB);
+            _ambitioContext.SaveChanges();
+
+            return usuarioDB;
+        }
     }
 }
 

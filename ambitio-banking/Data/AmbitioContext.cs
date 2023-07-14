@@ -32,10 +32,6 @@ namespace ambitio_banking.Data
 
         public DbSet<UsuarioModel> Usuario { get; set; }
 
-        //internal List<UsuarioModel> ToList()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }
 

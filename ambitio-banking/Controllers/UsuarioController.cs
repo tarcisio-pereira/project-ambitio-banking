@@ -21,8 +21,8 @@ namespace ambitio_banking.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<UsuarioModel>  contato = _usuarioRepository.BuscarTodos();
-            return View();
+            List<UsuarioModel>  usuarios = _usuarioRepository.BuscarTodos();
+            return View(usuarios);
         }
 
         public IActionResult Criar()
@@ -30,9 +30,10 @@ namespace ambitio_banking.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            UsuarioModel usuario = _usuarioRepository.ListarPorId(id);
+            return View(usuario);
         }
 
         public IActionResult Apagar()
@@ -44,6 +45,13 @@ namespace ambitio_banking.Controllers
         public IActionResult Criar(UsuarioModel usuario)
         {
             _usuarioRepository.Adicionar(usuario);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Editar(UsuarioModel usuario)
+        {
+            _usuarioRepository.Atualizar(usuario);
             return RedirectToAction("Index");
         }
     }
