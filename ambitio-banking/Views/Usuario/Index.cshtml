@@ -1,0 +1,93 @@
+﻿@model List<UsuarioModel>
+@{
+    ViewData["Title"] = "Listagem de Usuários";
+}
+
+
+<div>
+    <div class="text-center">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a class="btn btn-dark m-2" asp-controller="Usuario" asp-action="Criar" role="button">Adicionar novo usuário</a>
+        </div>
+
+        <br />
+
+        @if (TempData["MensagemSucesso"] != null)
+        {
+            <div class="alert alert-dark" role="alert">
+                <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+                @TempData["MensagemSucesso"]
+            </div>
+        }
+
+        @if (TempData["MensagemErro"] != null)
+        {
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="btn btn-warning btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+                @TempData["MensagemErro"]
+            </div>
+        }
+
+        <br />
+
+        <h1 class="display-4">Listagem de usuários</h1>
+
+        <div class="d-flex justify-content-center">
+            <table id="table-usuarios" class="display" style="width:70%">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Perfil</th>
+                        <th scope="col">Data de cadastro</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (UsuarioModel usuario in Model)
+                        {
+                            <tr>
+                                <th scope="row">@usuario.Id</th>
+                                <td>@usuario.Nome</td>
+                                <td>@usuario.Cpf</td>
+                                <td>@usuario.Email</td>
+                                <td>@usuario.Perfil</td>
+                                <td>@usuario.DataCadastro</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a role="button" asp-route-id="@usuario.Id" asp-action="Editar" asp-controller="Usuario" class="btn btn-dark">Editar</a>
+                                        <a role="button" asp-route-id="@usuario.Id" asp-action="Apagar" asp-controller="Usuario" class="btn btn-warning">Apagar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+
+            @if (TempData["MensagemSucesso"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+                    @TempData["MensagemSucesso"]
+                </div>
+            }
+
+            @if (TempData["MensagemErro"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+                    @TempData["MensagemErro"]
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

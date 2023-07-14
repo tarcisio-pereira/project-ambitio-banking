@@ -1,7 +1,19 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using ambitio_banking.Data;
+using ambitio_banking.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
-// Add services to the container.
+
+var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddEntityFrameworkMySql().AddDbContext<AmbitioContext>();
+
+builder.Services.AddDbContext<AmbitioContext>(options =>
+    options.UseMySql("server=localhost;port=3306;database=Banking;uid=root;password=senha123", new MySqlServerVersion(new Version(8, 0, 24))));
+
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 var app = builder.Build();
 
@@ -22,7 +34,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();
 
