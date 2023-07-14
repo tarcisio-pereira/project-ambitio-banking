@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Pagar";
 }
+
 @*Sidebar página*@
 <div class="d-flex">
     <div class="sidebar d-flex flex-column p-3 bg-white shadow">
@@ -25,7 +26,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a class="nav-link text-dark active" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Home" asp-action="Index">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>Inicio
@@ -40,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Pagar" asp-action="Index">
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Pagar" asp-action="Index">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
@@ -50,6 +51,7 @@
         </ul>
         <hr>
     </div>
+
     @*Aqui começa o body da página*@
     <div class="d-flex flex-column mb-3 flex-fill" id="ComponenteBody">
         <div class="d-flex flex-row">
@@ -79,7 +81,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button class="btn btn-primary rounded" type="submit" id=ConfirmButton asp-controller="ConfirmarPagamento">Confirmar</button>
+                    <button class="btn btn-dark rounded" type="submit" id=ConfirmButton asp-controller="ConfirmarPagamento">Confirmar</button>
                 </div>
             </form>
         </div>

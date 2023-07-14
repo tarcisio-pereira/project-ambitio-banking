@@ -25,7 +25,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a class="nav-link text-white active" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Home" asp-action="Index">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>Inicio
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Pagar" asp-action="Index">
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Pagar" asp-action="Index">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
@@ -50,11 +50,12 @@
         </ul>
         <hr>
     </div>
+
     @*Aqui começa o body da página*@
     <div class="d-flex flex-column mb-3 flex-fill" id="ComponenteBody">
         <div class="d-flex p-2 justify-content-start">
             <div>
-                <nav class="shadow-sm bg-white" id="NavDataUser">
+                <nav class="shadow-sm bg-white rounded-3" id="NavDataUser">
                     <div class="nav-text">
                         <p class="fw-normal" id="LabelNavDataUser"><strong>Tarcisio Mendes</strong></p>
                     </div>
@@ -78,7 +79,7 @@
                         <tr>
                             <th class="text-center align-middle">
                                 <a class="d-flex justify-content-center">
-                                    <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4"
+                                    <img src="https://cdn2.iconfinder.com/data/icons/arrow-119/24/chevron-double-down-1024.png"
                                          alt="Ambitio" width="30" height="30">
                                 </a>
                             </th>
@@ -91,7 +92,7 @@
                         <tr>
                             <th class="text-center align-middle">
                                 <a class="d-flex justify-content-center">
-                                    <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4"
+                                    <img  id="cash-out" src="https://cdn2.iconfinder.com/data/icons/arrow-119/24/chevron-double-down-1024.png"
                                          alt="Ambitio" width="30" height="30">
                                 </a>
                             </th>
@@ -104,8 +105,8 @@
                         <tr>
                             <th class="text-center align-middle">
                                 <a class="d-flex justify-content-center">
-                                    <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4"
-                                         alt="Ambitio" width="30" height="30">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/5467/5467996.png"
+                                         alt="Ambitio" width="20" height="20">
                                 </a>
                             </th>
                             <td class="d-flex flex-column">

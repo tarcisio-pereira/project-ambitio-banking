@@ -10,7 +10,6 @@ namespace ambitio_banking.Controllers
 {
     public class PagarController : Controller
     {
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();

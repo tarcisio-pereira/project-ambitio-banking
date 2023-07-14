@@ -1,10 +1,14 @@
 ﻿using System;
+using ambitio_banking.Data;
+using System.Configuration;
 using ambitio_banking.Models;
+using ambitio_banking.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ambitio_banking.Data
 {
-	public class AmbitioContext : DbContext
+    public class AmbitioContext : DbContext
 	{
         protected readonly IConfiguration Configuration;
 
@@ -22,8 +26,17 @@ namespace ambitio_banking.Data
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        { }
+        {
 
-        public DbSet<UserModel> Users { get; set; }
+        }
+
+        public DbSet<UsuarioModel> Usuario { get; set; }
+
+        //internal List<UsuarioModel> ToList()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
+
+

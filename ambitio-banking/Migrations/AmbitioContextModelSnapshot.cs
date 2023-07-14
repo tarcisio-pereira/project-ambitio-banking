@@ -19,7 +19,7 @@ namespace ambitio_banking.Migrations
                 .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("ambitio_banking.Models.UserModel", b =>
+            modelBuilder.Entity("ambitio_banking.Models.UsuarioModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,18 +28,27 @@ namespace ambitio_banking.Migrations
                     b.Property<string>("Cpf")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("DataAtualizacao")
+                    b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("Datacadastro")
+                    b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("Perfil")
+                        .HasColumnType("int");
 
                     b.Property<string>("Senha")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }
