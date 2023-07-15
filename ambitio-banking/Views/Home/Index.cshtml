@@ -8,8 +8,13 @@
             <div class="d-flex align-items-center">
                 <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4" alt="" width="32" height="32" class="rounded-circle me-2">
             </div>
-            <div class="d-flex align-items-center">
-                <p class="fw-light"><strong>Tarcisio Mendes</strong>  conta:1234-5</p>
+            <div class="d-flex flex-column align-items-center">
+                <div>
+                    <p class="fw-light"><strong>Tarcisio Mendes</strong></p>
+                </div>
+                <div>
+                    <p class="fw-light">Conta: 1234-5</p>
+                </div>
             </div>
         </div>
         <div>
@@ -26,36 +31,30 @@
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Home" asp-action="Index">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2"></use>
-                    </svg>Inicio
+                    <img class="me-2" src="https://www.nicepng.com/png/full/17-178841_home-png-home-icon-free.png" alt="" width="20" height="20">
+                    Inicio
                 </a>
             </li>
             <li>
                 <a class="nav-link text-dark" asp-area="" asp-controller="Transferir" asp-action="Index">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2"></use>
-                    </svg>
+                    <img class="me-2" src="https://th.bing.com/th/id/OIP.4cI3IAEDTMFHiNUpM5FjbgHaHa?pid=ImgDet&rs=1" alt="" width="20" height="20">
                     Transferir
                 </a>
             </li>
             <li>
                 <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Pagar" asp-action="Index">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
+                    <img class="me-2" src="https://cdn-icons-png.flaticon.com/512/4652/4652089.png" alt="" width="20" height="25">
                     Pagar
                 </a>
             </li>
         </ul>
         <hr>
     </div>
-
     @*Aqui começa o body da página*@
-    <div class="d-flex flex-column mb-3 flex-fill" id="ComponenteBody">
-        <div class="d-flex p-2 justify-content-start">
-            <div>
-                <nav class="shadow-sm bg-white rounded-3" id="NavDataUser">
+    <div class="d-flex flex-column flex-fill" id="ComponenteBody">
+        <div class="d-flex flex-row">
+            <div class="d-flex justify-content-start">
+                <nav class="rounded shadow-sm bg-white" id="NavDataUser">
                     <div class="nav-text">
                         <p class="fw-normal" id="LabelNavDataUser"><strong>Tarcisio Mendes</strong></p>
                     </div>
@@ -65,12 +64,18 @@
                 </nav>
             </div>
         </div>
+        <div class="d-flex">
+            <div class="d-flex justify-content-start">
+                <label class="fs-6" id="LabelTransfer"><strong>Extrato</strong></label>
+            </div>
+        </div>
+        <hr>
         <div class="d-flex p-2 justify-content-start">
             <div class="d-flex">
                 <table class="table shadow-sm bg-white rounded-3">
                     <thead>
                         <tr>
-                            <th scope="col">Extrato</th>
+                            <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
@@ -79,33 +84,7 @@
                         <tr>
                             <th class="text-center align-middle">
                                 <a class="d-flex justify-content-center">
-                                    <img src="https://cdn2.iconfinder.com/data/icons/arrow-119/24/chevron-double-down-1024.png"
-                                         alt="Ambitio" width="30" height="30">
-                                </a>
-                            </th>
-                            <td class="d-flex flex-column">
-                                Antônio Brasil
-                                <p class="fw-light">Transferência entre contas</p>
-                            </td>
-                            <td class="text-center align-middle"><label class="fw-medium">R$ 1000,00</label></td>
-                        </tr>
-                        <tr>
-                            <th class="text-center align-middle">
-                                <a class="d-flex justify-content-center">
-                                    <img  id="cash-out" src="https://cdn2.iconfinder.com/data/icons/arrow-119/24/chevron-double-down-1024.png"
-                                         alt="Ambitio" width="30" height="30">
-                                </a>
-                            </th>
-                            <td class="d-flex flex-column">
-                                Antônio Brasil
-                                <p class="fw-light">Transferência entre contas</p>
-                            </td>
-                            <td class="text-center align-middle"><label class="fw-medium">R$ 1000,00</label></td>
-                        </tr>
-                        <tr>
-                            <th class="text-center align-middle">
-                                <a class="d-flex justify-content-center">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/5467/5467996.png"
+                                    <img src="https://pic.onlinewebfonts.com/svg/img_332154.png"
                                          alt="Ambitio" width="20" height="20">
                                 </a>
                             </th>
@@ -114,6 +93,32 @@
                                 <p class="fw-light">Transferência entre contas</p>
                             </td>
                             <td class="text-center align-middle"><label class="fw-medium">R$ 1000,00</label></td>
+                        </tr>
+                        <tr>
+                            <th class="text-center align-middle">
+                                <a class="d-flex justify-content-center">
+                                    <img id="cash-out" src="https://pic.onlinewebfonts.com/svg/img_332154.png"
+                                         alt="Ambitio" width="20" height="20">
+                                </a>
+                            </th>
+                            <td class="d-flex flex-column">
+                                Antônio Brasil
+                                <p class="fw-light">Transferência entre contas</p>
+                            </td>
+                            <td class="text-center align-middle"><label class="fw-medium">R$ 1000,00</label></td>
+                        </tr>
+                        <tr>
+                            <th class="text-center align-middle">
+                                <a class="d-flex justify-content-center">
+                                    <img class="img-cash-out" src="https://freevector.co/wp-content/uploads/2009/04/10774-arrow-pointing-to-up1.png"
+                                         alt="cash-out" width="20" height="20">
+                                </a>
+                            </th>
+                            <td class="d-flex flex-column">
+                                Antônio Brasil
+                                <p class="fw-light">Transferência entre contas</p>
+                            </td>
+                            <td class="text-center align-middle"><label class="fw-medium">- R$ 1000,00</label></td>
                         </tr>
                     </tbody>
                 </table>
