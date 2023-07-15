@@ -1,4 +1,5 @@
 ﻿@model UsuarioModel
+
 @{
     ViewData["Title"] = "Criar Usuários";
 }
@@ -18,20 +19,24 @@
                             <div class="form-outline form-white mb-4">
                                 <label class="text-start">Nome</label>
                                 <input type="text" asp-for="Nome" id="typeNome" class="form-control form-control-lg" placeholder="Digite o nome" />
+                                @Html.ValidationMessageFor(x => x.Nome)
                             </div>
                             <div class="form-outline form-white mb-4">
                                 <label>CPF</label>
-                                <input type="text" asp-for="Cpf" id="typeCpf" class="form-control form-control-lg" placeholder="Digite o CPF " />
+                                <input type="text" asp-for="Cpf" id="typeCpf" class="form-control form-control-lg" placeholder="Digite o CPF" />
+                                @Html.ValidationMessageFor(x => x.Cpf)
                             </div>
 
                             <div class="form-outline form-white mb-4">
                                 <label>Email</label>
-                                <input type="text" asp-for="Email" id="typeEmail" class="form-control form-control-lg" placeholder="Digite o Email" />
+                                <input type="text" asp-for="Email" id="typeEmail" class="form-control form-control-lg" placeholder="Digite o Email"/>
+                                @Html.ValidationMessageFor(x => x.Email)
                             </div>
 
                             <div class=" dropdown form-outline form-white mb-4">
                                 <label>Senha</label>
                                 <input type="password" asp-for="Senha" id="typePassword" class="form-control form-control-lg" placeholder="Digite a senha" />
+                                @Html.ValidationMessageFor(x => x.Senha)
                             </div>
 
                             <div class="d-flex dropdown form-black mb-4 start-0">
