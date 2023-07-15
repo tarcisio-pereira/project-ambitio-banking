@@ -1,15 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Confirmar Pagamento";
 }
-
+@*Sidebar página*@
 <div class="d-flex">
     <div class="sidebar d-flex flex-column p-3 bg-white shadow">
         <div class="d-flex">
             <div class="d-flex align-items-center">
                 <img src="https://avatars.githubusercontent.com/u/61057709?s=96&v=4" alt="" width="32" height="32" class="rounded-circle me-2">
             </div>
-            <div class="d-flex align-items-center">
-                <p class="fw-light"><strong>Tarcisio Mendes</strong>  conta:1234-5</p>
+            <div class="d-flex flex-column align-items-center">
+                <div>
+                    <p class="fw-light"><strong>Tarcisio Mendes</strong></p>
+                </div>
+                <div>
+                    <p class="fw-light">Conta: 1234-5</p>
+                </div>
             </div>
         </div>
         <div>
@@ -25,32 +30,26 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a class="nav-link text-dark active" asp-area="" asp-controller="Home" asp-action="Index">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2"></use>
-                    </svg>Inicio
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="me-2" src="https://www.nicepng.com/png/full/17-178841_home-png-home-icon-free.png" alt="" width="20" height="20">
+                    Inicio
                 </a>
             </li>
             <li>
                 <a class="nav-link text-dark" asp-area="" asp-controller="Transferir" asp-action="Index">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2"></use>
-                    </svg>
+                    <img class="me-2" src="https://th.bing.com/th/id/OIP.4cI3IAEDTMFHiNUpM5FjbgHaHa?pid=ImgDet&rs=1" alt="" width="20" height="20">
                     Transferir
                 </a>
             </li>
             <li>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Pagar" asp-action="Index">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Pagar" asp-action="Index">
+                    <img class="me-2" src="https://cdn-icons-png.flaticon.com/512/4652/4652089.png" alt="" width="20" height="25">
                     Pagar
                 </a>
             </li>
         </ul>
         <hr>
     </div>
-
     @*Aqui começa o body da página*@
     <div class="d-flex flex-column mb-3 flex-fill" id="ComponenteBody">
         <div class="d-flex flex-row">
@@ -118,13 +117,14 @@
                             </tr>
                             <tr>
                                 <td class="d-flex flex-column form-label fw-normal">
-                                    CPF/CNPJ
+                                    CPF
                                 </td>
                                 <td class="form-label fw-normal text-end align-middle"><label class="fw-medium"><strong>112.223.334-56</strong></label></td>
                             </tr>
                             <tr>
                                 <td class="d-flex flex-column form-label fw-normal">
-                                    Instituição                                             </td>
+                                    Instituição
+                                </td>
                                 <td class=" form-label fw-normal text-end align-middle"><label class="fw-medium"><strong>Ambition Banking S.A</strong></label></td>
                             </tr>
 
@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button class="btn btn-primary rounded" id="ConfirmButton" type="submit">Confirmar</button>
+                    <button class="btn btn-dark rounded" id="ConfirmButton" type="submit">Confirmar</button>
                 </div>
             </div>
         </div>
