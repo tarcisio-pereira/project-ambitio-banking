@@ -50,6 +50,19 @@ namespace ambitio_banking.Repository
 
             return usuarioDB;
         }
+
+        public bool Apagar( int id)
+        {
+            UsuarioModel usuarioDB = ListarPorId(id);
+
+            if (usuarioDB == null) throw new System.Exception("Houve um erro ao apagar o contato!");
+
+            _ambitioContext.Usuario.Remove(usuarioDB);
+            _ambitioContext.SaveChanges();
+
+            return true;
+
+        }
     }
 }
 

@@ -3,35 +3,29 @@
     ViewData["Title"] = "Listagem de Usuários";
 }
 
-
 <div>
     <div class="text-center">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <br />
+        <div class="d-flex justify-content-end gap-2 d-md-flex">
             <a class="btn btn-dark m-2" asp-controller="Usuario" asp-action="Criar" role="button">Adicionar novo usuário</a>
         </div>
 
-        <br />
-
         @if (TempData["MensagemSucesso"] != null)
         {
-            <div class="alert alert-dark" role="alert">
-                <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
-                @TempData["MensagemSucesso"]
+            <div class="d-flex alert alert-success" role="alert">
+                <div class="d-flex flex-fill justify-content-center ">Usuário criado com sucesso!</div>
+                <button type="button" class="d-flex justify-content-end btn-close close-alert" aria-label="Close"></button>
             </div>
         }
-
         @if (TempData["MensagemErro"] != null)
         {
-            <div class="alert alert-warning" role="alert">
-                <button type="button" class="btn btn-warning btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
-                @TempData["MensagemErro"]
+            <div class="d-flex alert alert-danger" role="alert">
+                <div class="d-flex flex-fill justify-content-center">Usuário apagado com sucesso!</div>
+                <button type="button" class="d-flex justify-content-end btn-close close-alert" aria-label="Close"></button>
             </div>
         }
-
         <br />
-
-        <h1 class="display-4">Listagem de usuários</h1>
-
+        <h1 class="fs-3 text">Listagem de usuários</h1>
         <div class="d-flex justify-content-center">
             <table id="table-usuarios" class="display" style="width:70%">
                 <thead>
@@ -60,7 +54,7 @@
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a role="button" asp-route-id="@usuario.Id" asp-action="Editar" asp-controller="Usuario" class="btn btn-dark">Editar</a>
-                                        <a role="button" asp-route-id="@usuario.Id" asp-action="Apagar" asp-controller="Usuario" class="btn btn-warning">Apagar</a>
+                                        <a role="button" asp-route-id="@usuario.Id" asp-action="ApagarConfirmacao" asp-controller="Usuario" class="btn btn-warning">Apagar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -68,24 +62,6 @@
                     }
                 </tbody>
             </table>
-        </div>
-        <div>
-
-            @if (TempData["MensagemSucesso"] != null)
-            {
-                <div class="alert alert-success" role="alert">
-                    <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-                    @TempData["MensagemSucesso"]
-                </div>
-            }
-
-            @if (TempData["MensagemErro"] != null)
-            {
-                <div class="alert alert-danger" role="alert">
-                    <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-                    @TempData["MensagemErro"]
-                </div>
-            }
         </div>
     </div>
 </div>

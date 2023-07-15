@@ -151,6 +151,7 @@ fw-medium {
     padding-bottom: 5px;
 }
 
-[id=cash-out] {
-    transform: rotateX('90');
+.field-validation-error {
+    color: #ff6961;
+    text-align: left;
 }
