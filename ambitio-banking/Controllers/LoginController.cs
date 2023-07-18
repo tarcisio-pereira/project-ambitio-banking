@@ -1,14 +1,20 @@
 ﻿using System;
 using ambitio_banking.Models;
+using ambitio_banking.Repository;
 using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ambitio_banking.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IUsuarioRepository _usuarioRepository;
+
+        public LoginController(IUsuarioRepository usuarioRespository)
+        {
+            _usuarioRepository = usuarioRespository; 
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -21,12 +27,19 @@ namespace ambitio_banking.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (loginModel.Login == "admin@admin.com" && loginModel.Senha == "123")
+                    UsuarioModel usuario = _usuarioRepository.BuscarPorCpf(loginModel.Login);
+
+                    if (usuario != null)
                     {
-                        return RedirectToAction("Index", "Home");
+                        if (usuario.SenhaValida(loginModel.Senha))
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+
+                        TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Tente novamente!";
                     }
 
-                    TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Tente novamente";
+                    TempData["MensagemErro"] = $"Usuário e/ou senha invalido(s). Tente novamente!";
                 }
 
                 return View("Index");
@@ -39,4 +52,3 @@ namespace ambitio_banking.Controllers
         }
     }
 }
-
