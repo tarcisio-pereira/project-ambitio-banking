@@ -5,6 +5,8 @@ namespace ambitio_banking.Repository
 {
 	public interface IUsuarioRepository
 	{
+		UsuarioModel BuscarPorCpf(string Cpf);
+
 		UsuarioModel ListarPorId(int id);
 
 		List<UsuarioModel> BuscarTodos();

@@ -85,7 +85,6 @@ namespace ambitio_banking.Controllers
                 return RedirectToAction("Index");
             }
         }
-
         [HttpPost]
         public IActionResult Editar(UsuarioModel usuario)
         {
@@ -108,4 +107,3 @@ namespace ambitio_banking.Controllers
         }
     }
 }
-

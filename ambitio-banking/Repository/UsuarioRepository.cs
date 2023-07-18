@@ -8,6 +8,7 @@ namespace ambitio_banking.Repository
     {
 
         private readonly AmbitioContext _ambitioContext;
+        private object usuarioDB;
 
         public UsuarioRepository(AmbitioContext ambitoContext)
         {
@@ -29,6 +30,8 @@ namespace ambitio_banking.Repository
 
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
+            usuario.DataCadastro = DateTime.Now;
+
             _ambitioContext.Usuario.Add(usuario);
             _ambitioContext.SaveChanges();
             return usuario;
@@ -44,6 +47,7 @@ namespace ambitio_banking.Repository
             usuarioDB.Cpf = usuario.Cpf;
             usuarioDB.Email = usuario.Email;
             usuarioDB.Senha = usuario.Senha;
+            usuarioDB.DataAtualizacao = DateTime.Now;
 
             _ambitioContext.Usuario.Update(usuarioDB);
             _ambitioContext.SaveChanges();
@@ -62,6 +66,11 @@ namespace ambitio_banking.Repository
 
             return true;
 
+        }
+
+        public UsuarioModel BuscarPorCpf(string Cpf)
+        {
+            return _ambitioContext.Usuario.FirstOrDefault(x => x.Cpf == Cpf);
         }
     }
 }

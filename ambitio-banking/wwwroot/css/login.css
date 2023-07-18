@@ -13,3 +13,8 @@
     width: 100vw;
     background-size: cover;
 }
+
+.field-validation-error {
+
+    color: #ff6961;
+}

@@ -3,68 +3,74 @@
     ViewData["Title"] = "Listagem de Usuários";
 }
 
-<div>
-    <div class="text-center">
-        <br />
-        <div class="d-flex justify-content-end gap-2 d-md-flex">
-            <a class="btn btn-dark m-2" asp-controller="Usuario" asp-action="Criar" role="button">Adicionar novo usuário</a>
+
+<div class="text-center">
+    <br />
+    <div class="d-flex justify-content-end gap-2 d-md-flex">
+        <a class="btn btn-dark m-2" asp-controller="Usuario" asp-action="Criar" role="button">Adicionar novo usuário</a>
+    </div>
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="d-flex alert alert-success" role="alert">
+            <div class="d-flex flex-fill  justify-content-center">
+                @TempData["MensagemSucesso"]
+            </div>
+            <div>
+                <button type="button" class="d-flex justify-content-end btn-close close-alert" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
+    }
 
-        @if (TempData["MensagemSucesso"] != null)
-        {
-            <div class="d-flex alert alert-success" role="alert">
-                <div class="d-flex flex-fill justify-content-center ">Usuário criado com sucesso!</div>
-                <button type="button" class="d-flex justify-content-end btn-close close-alert" aria-label="Close"></button>
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="d-flex alert alert-danger" role="alert">
+            <div class="d-flex flex-fill  justify-content-center">
+                @TempData["MensagemErro"]
             </div>
-        }
-        @if (TempData["MensagemErro"] != null)
-        {
-            <div class="d-flex alert alert-danger" role="alert">
-                <div class="d-flex flex-fill justify-content-center">Usuário apagado com sucesso!</div>
-                <button type="button" class="d-flex justify-content-end btn-close close-alert" aria-label="Close"></button>
+            <div>
+                <button type="button" class="d-flex justify-content-end btn-close close-alert" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        }
-        <h1 class="fs-3 text">Lista de usuários</h1>
-        <br />
-        <div class="d-flex justify-content-center" >
-
-            <table class="table" id="table-usuario">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Perfil</th>
-                        <th scope="col">Data&nbsp;de&nbsp;cadastro</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
+        </div>
+    }
+    <h1 class="fs-3 text">Lista de usuários</h1>
+    <br />
+    <div class="d-flex justify-content-center">
+        <table class="table" id="table-usuario">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Perfil</th>
+                    <th scope="col">Data&nbsp;de&nbsp;cadastro</th>
+                    <th scope="col">Data&nbsp;de&nbsp;Atualização</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (UsuarioModel usuario in Model)
                     {
-                        foreach (UsuarioModel usuario in Model)
-                        {
-                            <tr>
-                                <th scope="row">@usuario.Id</th>
-                                <td>@usuario.Nome</td>
-                                <td>@usuario.Cpf</td>
-                                <td>@usuario.Email</td>
-                                <td>@usuario.Perfil</td>
-                                <td>@usuario.DataCadastro</td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a role="button" asp-route-id="@usuario.Id" asp-action="Editar" asp-controller="Usuario" class="btn btn-dark">Editar</a>
-                                        <a role="button" asp-route-id="@usuario.Id" asp-action="ApagarConfirmacao" asp-controller="Usuario" class="btn btn-warning">Apagar</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
+                        <tr>
+                            <th scope="row">@usuario.Id</th>
+                            <td>@usuario.Nome</td>
+                            <td>@usuario.Cpf</td>
+                            <td>@usuario.Email</td>
+                            <td>@(usuario.Perfil == ambitio_banking.Enum.PerfilEnum.Admin? "Admin" : "Padrão")</td>
+                            <td>@usuario.DataCadastro</td>
+                            <td>@usuario.DataAtualizacao</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a role="button" asp-route-id="@usuario.Id" asp-action="Editar" asp-controller="Usuario" class="btn btn-dark">Editar</a>
+                                    <a role="button" asp-route-id="@usuario.Id" asp-action="ApagarConfirmacao" asp-controller="Usuario" class="btn btn-warning">Apagar</a>
+                                </div>
+                            </td>
+                        </tr>
                     }
-                </tbody>
-            </table>
-        </div>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
-
-
