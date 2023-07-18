@@ -4,22 +4,23 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
-    getDatatable('#table-usuarios');
+    getDatatable('#table-usuario');
+$('.btn-total-contatos').click(function () {
+    var usuarioId = $(this).attr('usuario-id');
 
-    $('.btn-total-contatos').click(function () {
-        var usuarioId = $(this).attr('usuario-id');
-
-        $.ajax({
-            type: 'GET',
-            url: '/Usuario/ListarContatosPorUsuarioId/' + usuarioId,
-            success: function (result) {
-                $("#listaContatosUsuario").html(result);
-                $('#modalContatosUsuario').modal();
-                getDatatable('#table-contatos-usuario');
-            }
-        });
+    $.ajax({
+        type: 'GET',
+        url: '/Usuario/ListarContatosPorUsuarioId/' + usuarioId,
+        success: function (result) {
+            $("#listaContatosUsuario").html(result);
+            $('#modalContatosUsuario').modal();
+            getDatatable('#table-contatos-usuario');
+        }
     });
-})
+});
+
+});
+
 
 function getDatatable(id) {
     $(id).DataTable({
