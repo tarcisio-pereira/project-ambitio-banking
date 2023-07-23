@@ -1,4 +1,5 @@
 ﻿using System;
+using ambitio_banking.Helpers;
 using ambitio_banking.Models;
 using ambitio_banking.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -9,15 +10,26 @@ namespace ambitio_banking.Controllers
     public class LoginController : Controller
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly ISessao _sessao;
 
-        public LoginController(IUsuarioRepository usuarioRespository)
+        public LoginController(IUsuarioRepository usuarioRespository, ISessao sessao)
         {
-            _usuarioRepository = usuarioRespository; 
+            _usuarioRepository = usuarioRespository;
+            _sessao = sessao;
         }
 
         public IActionResult Index()
         {
+            // Se o usuário estiver logado redirecionar para a tela inicial
+            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
+
             return View();
+        }
+
+        public IActionResult Sair()
+        {
+            _sessao.BuscarSessaoDoUsuario();
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
@@ -33,6 +45,7 @@ namespace ambitio_banking.Controllers
                     {
                         if (usuario.SenhaValida(loginModel.Senha))
                         {
+                            _sessao.CriarSessaoDoUsuario(usuario);
                             return RedirectToAction("Index", "Home");
                         }
 
