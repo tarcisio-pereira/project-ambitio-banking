@@ -30,6 +30,8 @@
     <None Remove="Views\Usuario\" />
     <None Remove="Repository\" />
     <None Remove="Views\Login\" />
+    <None Remove="Helpers\" />
+    <None Remove="Views\Shared\Components\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Transferir\" />
@@ -39,5 +41,7 @@
     <Folder Include="Views\Usuario\" />
     <Folder Include="Repository\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 </Project>
