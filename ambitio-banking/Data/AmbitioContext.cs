@@ -21,7 +21,8 @@ namespace ambitio_banking.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;port=3306;database=Banking;uid=root;password=senha123", new MySqlServerVersion(new Version(8, 0, 24)));
+                //optionsBuilder.UseMySql("server=localhost;port=3306;database=Banking;uid=root;password=senha123", new MySqlServerVersion(new Version(8, 0, 24)));
+                  optionsBuilder.UseMySql("server=ambitio-banking.mysql.database.azure.com;port=3306;database=Banking;uid=tarcisio51;password=Ambitio5151", new MySqlServerVersion(new Version(8, 0, 24)));
             }
         }
 
