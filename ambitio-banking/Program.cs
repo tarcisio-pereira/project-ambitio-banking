@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ambitio_banking.Helpers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting.Server;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +13,11 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddEntityFrameworkMySql().AddDbContext<AmbitioContext>();
 
+//builder.Services.AddDbContext<AmbitioContext>(options =>
+//    options.UseMySql("server=localhost;port=3306;database=Banking;uid=root;password=senha123", new MySqlServerVersion(new Version(8, 0, 24))));
+
 builder.Services.AddDbContext<AmbitioContext>(options =>
-    options.UseMySql("server=localhost;port=3306;database=Banking;uid=root;password=senha123", new MySqlServerVersion(new Version(8, 0, 24))));
+    options.UseMySql("server=ambitio-banking.mysql.database.azure.com;port=3306;database=Banking;uid=tarcisio51;password=Ambitio5151", new MySqlServerVersion(new Version(8, 0, 24))));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
