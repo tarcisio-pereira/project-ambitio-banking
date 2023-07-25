@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using ambitio_banking.Enum;
+using ambitio_banking.Helpers;
 
 namespace ambitio_banking.Models
 {
@@ -30,7 +31,12 @@ namespace ambitio_banking.Models
 
         public bool SenhaValida(string senha)
         {
-            return Senha == senha;
+            return Senha == senha.GerarHash();
+        }
+
+        public void SetSenhaHash()
+        {
+            Senha = Senha.GerarHash();
         }
     }
 }
