@@ -3,7 +3,6 @@
     Layout = "_LayoutDeslogado";
     ViewData["Title"] = "Login";
 }
-
 <div class="container gradient-custom mw-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -29,10 +28,20 @@
                                     </p>
                                 }
                             </div>
-                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Esqueceu a senha?</a></p>
-
+                            <p class="small mb-5 pb-lg-2">Esqueceu a senha? <a class="text-white-50" asp-controller="Login" asp-action="RedefinirSenha">Redefinir a senha</a></p>
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Entrar</button>
                         </div>
+                        @if (TempData["MensagemSucesso"] != null)
+                        {
+                            <div class="d-flex alert alert-success" role="alert">
+                                <div class="d-flex flex-fill  justify-content-center">
+                                    @TempData["MensagemSucesso"]
+                                </div>
+                                <div>
+                                    <button type="button" class="d-flex justify-content-end btn-close close-alert" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        }
                         <div>
                             <p class="mb-0">
                                 Não tem uma conta? <a class="text-white-50 fw-bold" asp-controller="Usuario" asp-action="Criar">Abra sua conta</a>

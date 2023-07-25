@@ -46,21 +46,21 @@
                 Pagar
             </a>
         </li>
+        @if (Model.Perfil == ambitio_banking.Enum.PerfilEnum.Admin)
+        {
+            <li>
+                <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Usuario" asp-action="Index" id="user-button">
+                    <img class="me-2" src="https://cdn.icon-icons.com/icons2/1515/PNG/512/adduser_105070.png" width="23" height="25" alt="profile-user" />
+                    Usuário
+                </a>
+            </li>
+        }
         <li>
             <a class="nav-link text-dark" role="button" asp-area="" asp-controller="Login" asp-action="Sair" id="logout--button">
                 <img class="me-2" src="https://www.svgrepo.com/show/21304/logout.svg" alt="" width="20" height="25">
                 Sair
             </a>
         </li>
-        @if (Model.Perfil == ambitio_banking.Enum.PerfilEnum.Admin)
-        {
-            <li>
-                <a class="nav-link text-dark"  role="button" asp-area="" asp-controller="Usuario" asp-action="Index" id="user-button">
-                    <img class="me-2" src="https://cdn.icon-icons.com/icons2/1515/PNG/512/adduser_105070.png" width="23" height="25" alt="profile-user"/>
-                    Usuário
-                </a>
-            </li>
-        }
     </ul>
     <hr>
 </div>

@@ -11,11 +11,15 @@ namespace ambitio_banking.Controllers
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly ISessao _sessao;
+        private readonly IEmail _email;
 
-        public LoginController(IUsuarioRepository usuarioRespository, ISessao sessao)
+        public LoginController(IUsuarioRepository usuarioRespository,
+                               ISessao sessao,
+                               IEmail email)
         {
             _usuarioRepository = usuarioRespository;
             _sessao = sessao;
+            _email = email;
         }
 
         public IActionResult Index()
@@ -31,6 +35,13 @@ namespace ambitio_banking.Controllers
             _sessao.RemoverSessao();
             return RedirectToAction("Index", "Login");
         }
+
+        public IActionResult RedefinirSenha()
+        {
+
+            return View();
+        }
+
 
         [HttpPost]
         public IActionResult Entrar(LoginModel loginModel)
@@ -60,6 +71,44 @@ namespace ambitio_banking.Controllers
             catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Ops... não conseguimos realizar seu login, tente novamente! detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+
+        public IActionResult EnviarLinkRedefinirSenha(RedefinirSenhaModel redefinirSenhaModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    UsuarioModel usuario = _usuarioRepository.BuscarPorEmailELogin(redefinirSenhaModel.Email, redefinirSenhaModel.Login);
+
+                    if (usuario != null)
+                    {
+                        string novaSenha = usuario.GerarNovaSenha();
+                        string mensagem = $"Sua nova senha é: {novaSenha}";
+                        bool emailEnviado = _email.Enviar(usuario.Email, "Ambitio Banking Redefinir Senha", mensagem);
+
+                        if (emailEnviado)
+                        {
+                            _usuarioRepository.Atualizar(usuario);
+                            TempData["MensagemSucesso"] = $"Uma nova senha foi enviado para o email cadastrado.";
+                            return RedirectToAction("Index", "Login");
+                        } else
+                        {
+                            TempData["MensagemErro"] = $"Erro, email não foi enviado. Por favor tente novamente!";
+                            return RedirectToAction("Index", "Login");
+                        }
+                    }
+                    TempData["MensagemErro"] = $"Não foi possível redefinir sua senha. Por favor verifique os dados informado!";
+                }
+                return View("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops... não foi possível redefinir sua senha. Tente novamente! detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }

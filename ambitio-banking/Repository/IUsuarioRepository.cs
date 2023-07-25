@@ -7,7 +7,9 @@ namespace ambitio_banking.Repository
 	{
 		UsuarioModel BuscarPorCpf(string Cpf);
 
-		UsuarioModel ListarPorId(int id);
+        UsuarioModel BuscarPorEmailELogin(string email ,string Cpf);
+
+        UsuarioModel ListarPorId(int id);
 
 		List<UsuarioModel> BuscarTodos();
 
