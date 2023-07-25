@@ -72,6 +72,11 @@ namespace ambitio_banking.Repository
         {
             return _ambitioContext.Usuario.FirstOrDefault(x => x.Cpf == Cpf);
         }
+
+        public UsuarioModel BuscarPorEmailELogin(string email, string Cpf)
+        {
+            return _ambitioContext.Usuario.FirstOrDefault(x => x.Cpf == Cpf && x.Email.ToUpper() == email.ToUpper());
+        }
     }
 }
 
