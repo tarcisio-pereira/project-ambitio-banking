@@ -31,7 +31,7 @@ namespace ambitio_banking.Repository
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
             usuario.DataCadastro = DateTime.Now;
-
+            usuario.SetSenhaHash();
             _ambitioContext.Usuario.Add(usuario);
             _ambitioContext.SaveChanges();
             return usuario;
@@ -48,7 +48,7 @@ namespace ambitio_banking.Repository
             usuarioDB.Email = usuario.Email;
             usuarioDB.Senha = usuario.Senha;
             usuarioDB.DataAtualizacao = DateTime.Now;
-
+            usuario.SetSenhaHash();
             _ambitioContext.Usuario.Update(usuarioDB);
             _ambitioContext.SaveChanges();
 
