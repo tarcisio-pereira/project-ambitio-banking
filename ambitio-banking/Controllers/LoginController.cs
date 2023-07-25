@@ -28,7 +28,7 @@ namespace ambitio_banking.Controllers
 
         public IActionResult Sair()
         {
-            _sessao.BuscarSessaoDoUsuario();
+            _sessao.RemoverSessao();
             return RedirectToAction("Index", "Login");
         }
 
