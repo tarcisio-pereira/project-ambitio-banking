@@ -1,8 +1,11 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ambitio_banking.Models;
+using ambitio_banking.Filters;
 
 namespace ambitio_banking.Controllers;
+
+[PaginaParaUsuarioLogado]
 
 public class HomeController : Controller
 {

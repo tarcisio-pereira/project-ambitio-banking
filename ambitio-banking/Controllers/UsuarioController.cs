@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ambitio_banking.Filters;
 using ambitio_banking.Models;
 using ambitio_banking.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ambitio_banking.Controllers
 {
+    [PaginaRestritaAdmin]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepository _usuarioRepository;
