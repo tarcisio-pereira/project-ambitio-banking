@@ -35,6 +35,7 @@
     <None Remove="Views\Shared\Components\Menu\" />
     <None Remove="Filters\" />
     <None Remove="Views\Restrito\" />
+    <None Remove="Views\AlterarSenha\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Transferir\" />
@@ -49,5 +50,6 @@
     <Folder Include="Views\Shared\Components\Menu\" />
     <Folder Include="Filters\" />
     <Folder Include="Views\Restrito\" />
+    <Folder Include="Views\AlterarSenha\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,62 @@
+﻿@model AlterarSenhaModel
+
+@{
+    ViewData["Title"] = "Alterar senha do usuários";
+}
+
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+<div class="container gradient-custom mw-100 px-0 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white">
+                <form id="login-form" class="form" asp-controller="AlterarSenha" asp-action="Alterar" method="post">
+                    <div class="card-body p-4 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase">Alterar senha</h2>
+                            <div class=" dropdown form-outline form-white mb-4">
+                                <label>Senha Atual</label>
+                                <input type="password" asp-for="SenhaAtual" id="Password1" class="form-control form-control-lg" placeholder="Digite a senha atual" />
+                                @Html.ValidationMessageFor(x => x.SenhaAtual)
+                            </div>
+                            <div class=" dropdown form-outline form-white mb-4">
+                                <label>Nova senha</label>
+                                <input type="password" asp-for="NovaSenha" id="NewPassword" class="form-control form-control-lg" placeholder="Digite a nova senha" />
+                                @Html.ValidationMessageFor(x => x.NovaSenha)
+                            </div>
+                            <div class=" dropdown form-outline form-white mb-4">
+                                <label>Confirme a nova senha</label>
+                                <input type="password" asp-for="ConfirmarNovaSenha" id="ConformPassword" class="form-control form-control-lg" placeholder="Confirme a nova senha" />
+                                @Html.ValidationMessageFor(x => x.ConfirmarNovaSenha)
+                            </div>
+                            @if (TempData["MensagemSucesso"] != null)
+                            {
+                                <div class="d-flex alert alert-success" role="alert">
+                                    <div class="d-flex flex-fill  justify-content-center">
+                                        @TempData["MensagemSucesso"]
+                                    </div>
+                                    <div>
+                                        <button type="button" class="d-flex justify-content-end btn-close close-alert" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            }
+
+                            @if (TempData["MensagemErro"] != null)
+                            {
+                                <div class="d-flex alert alert-danger" role="alert">
+                                    <div class="d-flex flex-fill  justify-content-center">
+                                        @TempData["MensagemErro"]
+                                    </div>
+                                    <div>
+                                        <button type="button" class="d-flex justify-content-end btn-close close-alert" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            }
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit" role="button" asp-action="index" asp-controller="Home">Voltar</button>
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit" role="button">Alterar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
