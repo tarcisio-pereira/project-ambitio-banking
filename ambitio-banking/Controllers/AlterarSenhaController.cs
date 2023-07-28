@@ -35,6 +35,7 @@ namespace ambitio_banking.Controllers
             {
                 UsuarioModel usuarioLogado = _sessao.BuscarSessaoDoUsuario();
                 alterarSenhaModel.Id = usuarioLogado.Id;
+
                 if (ModelState.IsValid)
                 {
                     _usuarioRepository.AlterarSenha(alterarSenhaModel);
@@ -49,7 +50,6 @@ namespace ambitio_banking.Controllers
                 TempData["MensagemErro"] = $"Senha não foi alterada, tente novamente! Detalhes do erro: {erro.Message}";
                 return View("Index", alterarSenhaModel);
             }
-
         }
     }
 }

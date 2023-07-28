@@ -12,9 +12,7 @@ namespace ambitio_banking.Repository
 
         public UsuarioRepository(AmbitioContext ambitoContext)
         {
-
             _ambitioContext = ambitoContext;
-
         }
 
         public UsuarioModel ListarPorId(int id)
@@ -65,7 +63,6 @@ namespace ambitio_banking.Repository
             _ambitioContext.SaveChanges();
 
             return true;
-
         }
 
         public UsuarioModel BuscarPorCpf(string Cpf)
@@ -83,7 +80,9 @@ namespace ambitio_banking.Repository
             UsuarioModel usuarioDB = ListarPorId(alterarSenhaModel.Id);
 
             if (usuarioDB == null) throw new Exception("Houve um erro ao atualizar a senha, usuário não encontrado!");
-            if (usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha altual incorreta");
+
+            if (!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha altual incorreta");
+
             if (usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new Exception("A nova senha deve ser diferente da senha atual!");
 
             usuarioDB.SetNovaSenha(alterarSenhaModel.NovaSenha);
