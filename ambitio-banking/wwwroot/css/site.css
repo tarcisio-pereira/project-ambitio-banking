@@ -47,6 +47,11 @@ body {
     font-size: 12px
 }
 
+.ml-1 {
+margin-right: 20px;
+
+}
+
 
 element.style {
 }

@@ -77,6 +77,22 @@ namespace ambitio_banking.Repository
         {
             return _ambitioContext.Usuario.FirstOrDefault(x => x.Cpf == Cpf && x.Email.ToUpper() == email.ToUpper());
         }
+
+        public UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
+        {
+            UsuarioModel usuarioDB = ListarPorId(alterarSenhaModel.Id);
+
+            if (usuarioDB == null) throw new Exception("Houve um erro ao atualizar a senha, usuário não encontrado!");
+            if (usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha altual incorreta");
+            if (usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new Exception("A nova senha deve ser diferente da senha atual!");
+
+            usuarioDB.SetNovaSenha(alterarSenhaModel.NovaSenha);
+            usuarioDB.DataAtualizacao = DateTime.Now;
+
+            _ambitioContext.Usuario.Update(usuarioDB);
+            _ambitioContext.SaveChanges();
+
+            return usuarioDB;
+        }
     }
 }
-

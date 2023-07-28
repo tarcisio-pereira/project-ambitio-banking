@@ -17,6 +17,8 @@ namespace ambitio_banking.Repository
 
 		UsuarioModel Atualizar(UsuarioModel usuario);
 
+		UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel);
+
 		bool Apagar(int id);
 	}
 }
