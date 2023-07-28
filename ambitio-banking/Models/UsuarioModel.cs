@@ -16,7 +16,7 @@ namespace ambitio_banking.Models
         public string? Cpf { get; set; }
 
         [Required(ErrorMessage = "Email obrigatório")]
-        [EmailAddress(ErrorMessage ="Email Invalido")]
+        [EmailAddress(ErrorMessage ="Email Inválido")]
         public string? Email { get; set; }
 
         [Required(ErrorMessage = "Senha obrigatório")]
