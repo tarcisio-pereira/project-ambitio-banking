@@ -19,4 +19,3 @@ namespace ambitio_banking.Models
 
     }
 }
-
