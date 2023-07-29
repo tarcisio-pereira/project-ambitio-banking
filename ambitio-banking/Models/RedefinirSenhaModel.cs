@@ -7,7 +7,7 @@ namespace ambitio_banking.Models
 	{
         [Required(ErrorMessage = "Login obrigatório")]
         public string Login { get; set; }
-        [Required(ErrorMessage = "Email obrigatória")]
+        [Required(ErrorMessage = "Email obrigatório")]
         public string Email { get; set; }
     }
 }
