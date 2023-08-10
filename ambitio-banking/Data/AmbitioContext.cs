@@ -5,6 +5,7 @@ using ambitio_banking.Models;
 using ambitio_banking.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using ambitio_banking.Data.Map;
 
 namespace ambitio_banking.Data
 {
@@ -26,14 +27,14 @@ namespace ambitio_banking.Data
             }
         }
 
+        public DbSet<UsuarioModel> Usuario { get; set; }
+        public DbSet<ContaBancariaModel> ContaBancaria { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ContaBancariaMap());
 
+            base.OnModelCreating(modelBuilder);
         }
-
-        public DbSet<UsuarioModel> Usuario { get; set; }
-
     }
 }
-
-

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ambitio_banking.Data;
 
@@ -10,9 +11,11 @@ using ambitio_banking.Data;
 namespace ambitio_banking.Migrations
 {
     [DbContext(typeof(AmbitioContext))]
-    partial class AmbitioContextModelSnapshot : ModelSnapshot
+    [Migration("20230729161129_AtualizacaoContaBancaria")]
+    partial class AtualizacaoContaBancaria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,17 +29,19 @@ namespace ambitio_banking.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("NumeroConta")
+                        .HasMaxLength(6)
                         .HasColumnType("int");
 
                     b.Property<decimal?>("Saldo")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioId")
+                        .IsUnique();
 
                     b.ToTable("ContaBancaria");
                 });
@@ -80,15 +85,17 @@ namespace ambitio_banking.Migrations
             modelBuilder.Entity("ambitio_banking.Models.ContaBancariaModel", b =>
                 {
                     b.HasOne("ambitio_banking.Models.UsuarioModel", "Usuario")
-                        .WithMany("ContaBancarias")
-                        .HasForeignKey("UsuarioId");
+                        .WithOne("ContaBancaria")
+                        .HasForeignKey("ambitio_banking.Models.ContaBancariaModel", "UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("ambitio_banking.Models.UsuarioModel", b =>
                 {
-                    b.Navigation("ContaBancarias");
+                    b.Navigation("ContaBancaria");
                 });
 #pragma warning restore 612, 618
         }
