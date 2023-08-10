@@ -36,6 +36,7 @@
     <None Remove="Filters\" />
     <None Remove="Views\Restrito\" />
     <None Remove="Views\AlterarSenha\" />
+    <None Remove="Data\Map\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Transferir\" />
@@ -51,5 +52,11 @@
     <Folder Include="Filters\" />
     <Folder Include="Views\Restrito\" />
     <Folder Include="Views\AlterarSenha\" />
+    <Folder Include="Data\Map\" />
+    <Folder Include=".github\" />
+    <Folder Include=".github\workflows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\build.yml" />
   </ItemGroup>
 </Project>

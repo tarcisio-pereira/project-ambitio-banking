@@ -29,6 +29,8 @@ namespace ambitio_banking.Models
 
         public DateTime? DataAtualizacao { get; set; }
 
+        public virtual ContaBancariaModel ContaBancaria { get; set; }
+
         public bool SenhaValida(string senha)
         {
             return Senha == senha.GerarHash();
