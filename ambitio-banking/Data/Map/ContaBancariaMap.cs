@@ -11,7 +11,6 @@ namespace ambitio_banking.Data.Map
         {
             builder.HasKey(p => p.Id);
             builder.HasOne(e => e.Usuario);
-            builder.WithOne(e => e.Usuario);
         }
     }
 }
